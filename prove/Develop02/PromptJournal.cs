@@ -13,13 +13,12 @@ public class PromptJournal
             _prompts.Add(line);
             
         }
-        Console.WriteLine("Prompts loaded");
     }
     
     public string WriteJournal()
     {
         Random rnd = new Random();
-        string _prompt = _prompts[rnd.Next(1,5)];                       //prompt picked
+        string _prompt = _prompts[rnd.Next(0,4)];                       //prompt picked
         Console.WriteLine(_prompt);
         _userResponse = Console.ReadLine();                             //user writes journal
 
@@ -36,8 +35,7 @@ public class PromptJournal
         foreach (string lines in _journal)
         {
             Console.WriteLine(lines);
-        }
-        
+        }     
     }
 }
 
