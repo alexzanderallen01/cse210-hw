@@ -19,7 +19,11 @@ class Program
             Console.WriteLine("5. Quit");
             Console.WriteLine("What would you like to do? ");
             int userChoice = int.Parse(Console.ReadLine());
-            if (userChoice == 1)
+            if (userChoice < 6 ^ userChoice > 0)
+            {
+                Console.WriteLine("Invalid input. Please try again. ");
+            }
+            else if (userChoice == 1)
             {
                 journalFile1._journal.Add(promptJournal1.WriteJournal());
             }

@@ -40,8 +40,9 @@ public class JournalFile
     }
     public List<string> Load()
     {
-        Console.WriteLine("Saved files: ");
-        foreach (string name in _savedJournalNames)                 //currently does not remember file after closing
+        Console.WriteLine("Saved files: (Please only include the name. Not the .txt)");
+        string[] _filedata = Directory.GetFiles($@"../../../savedJournals/");
+        foreach (string name in _filedata) 
         {
             Console.WriteLine(name);
         }

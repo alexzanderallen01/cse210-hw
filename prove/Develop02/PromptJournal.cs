@@ -23,7 +23,7 @@ public class PromptJournal
         _userResponse = Console.ReadLine();                             //user writes journal
 
         DateTime theCurrentTime = DateTime.Now;
-        string dateText = theCurrentTime.ToShortDateString();           //date of journal, need to add time as well
+        string dateText = theCurrentTime.ToShortDateString();           //date of journal
 
         string writtenJournal = $"Date: {dateText} - Prompt: {_prompt} {_userResponse}";
 
