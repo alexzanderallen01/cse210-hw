@@ -36,6 +36,7 @@ public class PromptJournal
         {
             Console.WriteLine(lines);
         }     
+        Console.WriteLine();
     }
 }
 

@@ -3,7 +3,6 @@ using System;
 public class JournalFile
 {
     public List<string> _journal = new List<string>();
-    static List<string> _savedJournalNames = new List<string>();
 
     
 
@@ -26,7 +25,6 @@ public class JournalFile
             }
             
             tw.Close();
-            _savedJournalNames.Add($@"../../../savedJournals/{_filePath}");
         }
         else if (File.Exists(_filePath))
         {
