@@ -20,7 +20,11 @@ class Program
             {
                 break;
             }
-
+            if (scripture.HideRandomWord() == false)
+            {
+                Console.Write("\nYou memorized the scripture!");
+                break;
+            }
 
             Console.Clear();
             scripture.Display();

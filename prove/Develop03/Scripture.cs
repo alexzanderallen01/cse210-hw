@@ -5,10 +5,12 @@ public class Scripture
     private Reference _reference;
     private string _scriptureText;
     private List<Word> _scriptureWords;
+    private string _completeReference;
 
     public Scripture(string book, string chapter, string verse, string secondVerse, string scriptureText)
     {
         _reference = new Reference(book, chapter, verse, secondVerse);
+        _completeReference = _reference.GetScripture();
         _scriptureText = scriptureText;
         _scriptureWords = new List<Word>();
 
@@ -21,7 +23,7 @@ public class Scripture
 
     public void Display()
     {
-        Console.WriteLine($"{_reference}:");
+        Console.WriteLine($"{_completeReference}:");
         foreach (Word word in _scriptureWords)
         {
             if (word.IsHidden())
@@ -50,11 +52,16 @@ public class Scripture
     public bool HideRandomWord()
     {
         List<Word> seeableWords = AllSeeableWords();
-
+        if (seeableWords.Count == 0)             //should close program if all words hidden
+        {
+            return false;
+        }
         Random random = new Random();
         int randomIndex = random.Next(seeableWords.Count);
-
         seeableWords[randomIndex].Hide();
+        int randomIndex1 = random.Next(seeableWords.Count);
+        seeableWords[randomIndex1].Hide();
+
         return true;
     }
 }

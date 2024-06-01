@@ -17,10 +17,10 @@ public class Reference
     }
     public Reference(string secondBook, string secondChapter, string verse, string secondVerse)
     {
-        _book = secondBook;
-        _chapter = secondChapter;
-        _verse = verse;
-        _secondVerse = secondVerse;
+        this._book = secondBook;
+        this._chapter = secondChapter;
+        this._verse = verse;
+        this._secondVerse = secondVerse;
     }
     public string GetScripture()
     {
