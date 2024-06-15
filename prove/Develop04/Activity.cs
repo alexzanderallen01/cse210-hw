@@ -6,7 +6,7 @@ public class Activity
     private string _decription;
     private int _duration;
 
-    public Activity()   //string name, string decription, int duration
+    public Activity()   //Pre set name, decription, & duration
     {
         _name = "";
         _decription = "";
@@ -52,36 +52,26 @@ public class Activity
         Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine("Well done!");
-        GenerateSpinner(20);
+        GenerateSpinner(5);
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_duration} second of the {_name}.");
-        GenerateSpinner(20);
+        GenerateSpinner(10);
     }
     public void GenerateSpinner(int totalWait)
     {
-        int spinWait = 500;
-        int loopSpinner = 5;
-        while (loopSpinner != 0)
+        int spinWait = 150;
+        DateTime futureTime = GetFutureTime(5);
+        while (DateTime.Now <= futureTime)
         {
-            List<string> spinnerChars = spinnerList();
+            List<string> spinnerChars = new List<string>() {"|", "/", "-", "\\"};
             foreach (string spinnerChar in spinnerChars)
             {
                 Console.Write(spinnerChar);
                 Thread.Sleep(spinWait);
                 Console.Write("\b \b");
             }
-            loopSpinner -= 1;
         }
 
-    }
-    public List<string> spinnerList()
-    {
-        List<string> spinnerChars = new List<string>();
-        spinnerChars.Add("|");
-        spinnerChars.Add("/");
-        spinnerChars.Add("-");
-        spinnerChars.Add("\\");
-        return spinnerChars;
     }
     public void GetReady()
     {
@@ -93,10 +83,23 @@ public class Activity
     {
         int timerwait = 1000;
 
-        for (int i = 0; i <= totalWait; i++)
+        for (int i = 0; i <= (totalWait - 1); i++)
         {
-            Console.Write($"{totalWait - i} ");
+            Console.Write($"{totalWait - i}");
             Thread.Sleep(timerwait);
+            Console.Write("\b \b");
         }
+    }
+    public DateTime GetCurrentTime()
+    {
+        DateTime currentTime = new DateTime();
+        currentTime = DateTime.Now;
+        return currentTime;
+    }
+    public DateTime GetFutureTime(int duration)
+    {
+        DateTime futureTime = new DateTime();
+        futureTime = DateTime.Now.AddSeconds(duration);
+        return futureTime;
     }
 }

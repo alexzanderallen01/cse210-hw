@@ -9,14 +9,21 @@ public class BreathingActivity : Activity
     }
     public void PromptBreathing()
     {
-        while (currentTime <= futureTime) //Make these functions. Thank you team!
+        DateTime futureTime = GetFutureTime(GetDuration());
+        Console.WriteLine();
+        Console.WriteLine("Starting in");
+        GenerateCountdownTimer(3);
+        Console.Clear();
+        while (DateTime.Now <= futureTime) //Made these functions. Thank you team!
         {
             Console.WriteLine();
             Console.WriteLine("Breathe in...");
             GenerateCountdownTimer(5);
+            Console.Clear();
             Console.WriteLine();
             Console.WriteLine("Breathe out...");
             GenerateCountdownTimer(5);
+            Console.Clear();
         }
     }
 }
