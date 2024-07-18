@@ -17,4 +17,8 @@ public class Address
         string address = _street + ", " + _city + ", " + _state + ", " + _zip;
         return address;
     }
+    public bool isUSA()
+    {
+        return _zip == "USA" ? true : false;        //Credit to my friend Garret for teaching me that I could do this.
+    }
 }
